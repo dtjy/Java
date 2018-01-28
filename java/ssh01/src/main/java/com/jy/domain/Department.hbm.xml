@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-19 15:05:52 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.jy.domain.Department" table="department">
+        <id name="did" type="java.lang.Integer">
+            <column name="did" />
+            <generator class="native" />
+        </id>
+        <property name="dname" type="java.lang.String" length="20">
+            <column name="dname" />
+        </property>
+        <property name="ddesc" type="java.lang.String" length="100">
+            <column name="ddesc" />
+        </property>
+        <!-- 关联关系映射 -->
+        <set name="employees">
+            <key>
+                <column name="dno" />
+            </key>
+            <one-to-many class="com.jy.domain.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>

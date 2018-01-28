@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-1-19 15:05:52 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.jy.domain.Employee" table="employee">
+        <id name="eid" type="java.lang.Integer">
+            <column name="eid" />
+            <generator class="native" />
+        </id>
+        <property name="ename" type="java.lang.String" length="20">
+            <column name="ename" />
+        </property>
+        <property name="sex" type="java.lang.String" length="10">
+            <column name="sex" />
+        </property>
+        <property name="birthday" type="java.util.Date">
+            <column name="birthday" />
+        </property>
+        <property name="joinDate" type="java.util.Date">
+            <column name="joinDate"/>
+        </property>
+        <property name="eno" type="java.lang.String" length="20">
+            <column name="eno" />
+        </property>
+        <property name="username" type="java.lang.String" length="20">
+            <column name="username" />
+        </property>
+        <property name="password" type="java.lang.String" length="20">
+            <column name="password" />
+        </property>
+        <!-- 关联关系映射 -->
+        <many-to-one name="department" class="com.jy.domain.Department">
+        	<column name="dno"></column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
