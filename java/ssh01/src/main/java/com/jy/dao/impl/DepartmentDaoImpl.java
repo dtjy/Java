@@ -37,6 +37,7 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		Long a = (Long) query.uniqueResult();
 		int totalCount = a.intValue();
 		tx.commit();
+		session.close();
 		return totalCount;
 	}
 	
@@ -50,7 +51,16 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		@SuppressWarnings("unchecked")
 		List<Department> list = query.list();
 		tx.commit();
+		session.close();
 		return list;
+	}
+	
+	public void save(Department department) {
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(department);
+		tx.commit();
+		session.close();
 	}
 	
 	public SessionFactory getSessionFactory() {
@@ -60,4 +70,41 @@ public class DepartmentDaoImpl implements DepartmentDao{
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
+	public void update(Department department) {
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(department);
+		tx.commit();
+		session.close();
+	}
+
+	public Department findById(Integer did) {
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Department department =  (Department) session.get(Department.class, did);
+		tx.commit();
+		session.close();
+		return department;
+	}
+
+	public void deleteDepartment(Department department) {
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.delete(department);
+		tx.commit();
+		session.close();
+	}
+
+	public List<Department> findAll() {
+		String hql = "from Department";
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Query query = session.createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Department> list =  query.list();
+		tx.commit();
+		session.close();
+		return list;
+	}	
 }

@@ -6,12 +6,21 @@
 		<package name="ssh" extends="struts-default">
 			<action name="employee_*" class="employeeAction" method="{1}">
 				<result name="input">/index.jsp</result>
+				<result name="add">/frame/addEmployee.jsp</result>
+				<result name="save" type="redirectAction">employee_findAll.action</result>
 				<result name="success" type="redirect">/frame.jsp</result>
+				<result name="findAll">/frame/listEmployee.jsp</result>
+				<result name="delete" type="redirectAction">employee_findAll.action</result>
+				<result name="edit">/frame/editEmployee.jsp</result>
+				<result name="update" type="redirectAction">employee_findAll.action</result>
 			</action>
 			<action name="department_*" class="departmentAction" method="{1}">
 				<result name="findAll">/frame/list.jsp</result>
+				<result name="edit">/frame/editDepartment.jsp</result>
+				<result name="save" type="redirectAction">department_findAll.action</result>
+				<result name="add">/frame/addDepartment.jsp</result>
 				<result name="success" type="redirect">/frame.jsp</result>
+				<result name="delete" type="redirectAction">department_findAll.action</result>
 			</action>
-
 		</package>
 	</struts>

@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2018-1-19 15:05:52 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.jy.domain.Department" table="department">
+    <class name="com.jy.domain.Department" table="department" lazy="false">
         <id name="did" type="java.lang.Integer">
             <column name="did" />
             <generator class="native" />

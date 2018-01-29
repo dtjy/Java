@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    
-    <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head></head>
@@ -39,11 +38,10 @@
 </tr>
 <tr>
 <td>出生日期：</td>
-<td><s:textfield name="birthday" value="%{model.birthday }" /></td>
+<td><input type="text" name="birthday" value="<s:date name="model.birthday" format="yyyy-MM-dd"/>"/></td>
 <td>入职时间：</td>
-<td><s:textfield name="joinDate" value="%{model.joinDate }" /></td>
+<td><input type="text" name="joinDate" value="<s:date name="model.joinDate" format="yyyy-MM-dd"/>"/></td>
 </tr>
-
 <tr>
 <td>所属部门：</td>
 <td><s:select name="department.did" list="list"  value="%{model.department.did }" listKey="did" listValue="dname" headerKey="0" headerValue="--请选择--"/></td>

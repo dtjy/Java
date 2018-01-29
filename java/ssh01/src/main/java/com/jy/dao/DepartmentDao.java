@@ -24,4 +24,14 @@ public interface DepartmentDao {
 
 	List<Department> findByPage(int begin, int pageSize);
 
+	void save(Department department);
+
+	void update(Department department);
+
+	Department findById(Integer did);
+
+	void deleteDepartment(Department department);
+
+	List<Department> findAll();
+
 }

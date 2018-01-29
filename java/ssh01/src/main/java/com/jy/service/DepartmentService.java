@@ -9,6 +9,8 @@
  */
 package com.jy.service;
 
+import java.util.List;
+
 import com.jy.domain.Department;
 import com.jy.domain.PageBean;
 
@@ -19,6 +21,16 @@ import com.jy.domain.PageBean;
  */
 public interface DepartmentService {
 
-	PageBean<Department> findByPage(Integer currPage);
+	PageBean<Department> findByPage(int currPage);
+
+	void save(Department department);
+
+	void update(Department department);
+
+	Department findById(Integer did);
+
+	void delete(Department department);
+
+	List<Department> findAll();
 	
 }

@@ -23,6 +23,12 @@ import com.opensymphony.xwork2.ModelDriven;
  */
 public class DepartmentAction extends ActionSupport implements ModelDriven<Department>{
 
+	/**
+	 * 序列化
+	 * [2018年1月29日 上午10:23:28]
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Department department = new Department();
 	public Department getModel() {
 		return department;
@@ -30,7 +36,14 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	
 	private DepartmentService departmentService;
 	
-	private Integer currPage = 1;
+	private int currPage = 1;
+	
+	//删除
+	public String delete(){
+		department = this.departmentService.findById(department.getDid());
+		this.departmentService.delete(department);
+		return "delete";
+	}
 	
 	//提供一个查询方法
 	public String findAll(){
@@ -38,6 +51,29 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		//将pageBean存入值栈中
 		ActionContext ac = ActionContext.getContext();
 		ac.getValueStack().push(pageBean);
+		return "findAll";
+	}
+	
+	//添加页面
+	public String saveUI(){
+		return "add";
+	}
+	//保存添加
+	public String save(){
+		this.departmentService.save(department);
+		return "save";
+	}
+	//编辑页面
+	public String edit(){
+		department = this.departmentService.findById(department.getDid());
+		return "edit";
+	}
+	//更改保存
+	public String update(){
+		this.departmentService.update(department);
+		System.out.println(department.getDid());
+		System.out.println(department.getDdesc());
+		this.findAll();
 		return "findAll";
 	}
 	
@@ -49,11 +85,11 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		this.department = department;
 	}
 
-	public Integer getCurrPage() {
+	public int getCurrPage() {
 		return currPage;
 	}
 
-	public void setCurrPage(Integer currPage) {
+	public void setCurrPage(int currPage) {
 		this.currPage = currPage;
 	}
 
@@ -64,7 +100,6 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	public void setDepartmentService(DepartmentService departmentService) {
 		this.departmentService = departmentService;
 	}
-	
-	
+
 
 }

@@ -26,7 +26,7 @@ public class PageBean<T> {
 	//总记录数
 	private int totalCount;
 	//总页数
-	private int toatlPage;
+	private int totalPage;
 	//每页显示数据
 	private List<T> list;
 	
@@ -48,11 +48,11 @@ public class PageBean<T> {
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	}
-	public int getToatlPage() {
-		return toatlPage;
+	public int getTotalPage() {
+		return totalPage;
 	}
-	public void setToatlPage(int toatlPage) {
-		this.toatlPage = toatlPage;
+	public void setTotalPage(int toatlPage) {
+		this.totalPage = toatlPage;
 	}
 	public List<T> getList() {
 		return list;
