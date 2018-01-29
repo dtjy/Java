@@ -15,7 +15,7 @@
             <column name="ddesc" />
         </property>
         <!-- 关联关系映射 -->
-        <set name="employees">
+        <set name="employees" cascade="delete">
             <key>
                 <column name="dno" />
             </key>
