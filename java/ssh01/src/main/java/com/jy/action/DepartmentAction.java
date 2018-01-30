@@ -17,6 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 /**
+ * DepartmentAction
  ******************************************
  * @author jiangyao  [2018年1月29日 上午2:11:23]
  ******************************************
